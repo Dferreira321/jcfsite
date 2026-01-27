@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Galeria de Exposição">
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      
+      <h1 class="text-4xl font-black text-center text-jcf-black mb-10 uppercase">
+        Galeria de <span class="text-jcf-orange">Exposição</span>
+      </h1>
+
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+        
+       <div class="grid gap-4 place-content-start">
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+        </div>
+
+
+      <div class="grid gap-4 place-content-start">
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+       </div>
+
+
+              <div class="grid gap-4 place-content-start">
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+        </div>
+
+
+              <div class="grid gap-4 place-content-start">
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+          <div class="overflow-hidden rounded-lg shadow-sm">
+            <img class="h-auto max-w-full object-cover object-center cursor-zoom-in transition-transform duration-500 hover:scale-110" 
+                  src="/exposicao/transferir.jpeg"
+                 onclick="openModal(this.src)" alt="gallery-photo" />
+          </div>
+        </div>
+
+
+ 
+
+
+
+
+      </div>
+      </div>
+  </section>
+
+
+
+<div id="imageModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4" onclick="closeModal()">
+    <button class="absolute top-5 right-5 text-white text-5xl font-bold hover:text-jcf-orange cursor-pointer">&times;</button>
+    <img id="modalImg" src="" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl border-2 border-white/20" onclick="event.stopPropagation()" />
+  </div>
+
+  <script is:inline>  
+    function openModal(src) {
+      const modal = document.getElementById('imageModal');
+      const img = document.getElementById('modalImg');
+      img.src = src;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") closeModal();
+    });
+  </script>
+
+</Layout>

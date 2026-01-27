@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 1. Os teus dados (Podes adicionar mais facilmente aqui)
+const catalogos = [
+  {
+    titulo: "Catálogo Geral 2024",
+    descricao: "Tudo para a sua obra, desde cimento a ferramentas elétricas.",
+    ficheiro: "/catalogos/catalogo-geral.pdf",
+    tamanho: "12 MB",
+    cor: "border-jcf-orange"
+  },
+  {
+    titulo: "Tintas e Acabamentos",
+    descricao: "Gama completa de tintas interiores, exteriores e vernizes.",
+    ficheiro: "/catalogos/tintas-2024.pdf",
+    tamanho: "5 MB",
+    cor: "border-jcf-red"
+  },
+  {
+    titulo: "Bricolage e Jardim",
+    descricao: "Ferramentas manuais e soluções para o seu jardim.",
+    ficheiro: "/catalogos/jardim.pdf",
+    tamanho: "8 MB",
+    cor: "border-jcf-yellow"
+  }
+];
+---
+
+<Layout title="Catálogos">
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      
+      <div class="mb-12 border-l-8 border-jcf-orange pl-6">
+        <h1 class="text-4xl font-black text-jcf-black uppercase tracking-tight">
+          Nossos <span class="text-jcf-orange">Catálogos</span>
+        </h1>
+        <p class="text-jcf-grey font-medium mt-2">
+          Consulte as nossas tabelas de preços e especificações técnicas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {catalogos.map((cat) => (
+          <div class={`bg-white p-8 rounded-lg shadow-sm border-t-4 ${cat.cor} hover:shadow-md transition-shadow flex flex-col justify-between`}>
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-jcf-grey" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <span class="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded tracking-tighter">{cat.tamanho}</span>
+              </div>
+              <h2 class="text-xl font-black text-jcf-black mb-3 uppercase tracking-tight">{cat.titulo}</h2>
+              <p class="text-gray-600 text-sm mb-6 leading-relaxed">
+                {cat.descricao}
+              </p>
+            </div>
+            
+            <a 
+              href={cat.ficheiro} 
+              target="_blank"
+              class="inline-flex items-center justify-center gap-2 bg-jcf-black text-white font-bold py-3 px-4 rounded hover:bg-jcf-orange transition-colors group"
+            >
+              <span>DESCARREGAR PDF</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-y-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </a>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets';
+import logoJcf from '../assets/logo-jcf.png';
+---
+
+<header class="bg-white border-b-4 border-jcf-orange shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+    
+    <a href="/" class="flex items-center gap-3">
+      <Image src={logoJcf} alt="JCF Logo" class="h-14 w-auto" />
+      <div class="flex flex-col">
+        <span class="text-xl font-black leading-none text-jcf-black">JCF</span>
+        <span class="text-[8px] uppercase tracking-widest text-jcf-grey font-bold">Materiais de Construção</span>
+      </div>
+    </a>
+
+    <nav class="hidden md:flex gap-6 text-xs font-bold uppercase">
+      <a href="/" class="hover:text-jcf-orange">Início</a>
+      <a href="/catalogos" class="hover:text-jcf-orange">Catálogos</a>
+      <a href="/contactos" class="hover:text-jcf-orange">Contactos</a>
+       <a href="/exposicao" class="hover:text-jcf-orange">Exposição</a>
+
+    </nav>
+
+    <a href="/contactos" class="bg-jcf-red text-white px-4 py-2 rounded font-bold text-xs">
+      ORÇAMENTO
+    </a>
+
+  </div>
+</header>

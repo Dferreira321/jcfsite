@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  /* Aqui definimos as variáveis para o Tailwind reconhecer */
+  --color-jcf-red: #D34027;
+  --color-jcf-orange: #F28E2B;
+  --color-jcf-yellow: #F9B921;
+  --color-jcf-grey: #9BA0A3;
+  --color-jcf-black: #1A1A1B;
+}

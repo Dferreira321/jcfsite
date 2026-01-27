@@ -1,0 +1,28 @@
+---
+import Header from '../components/Header.astro';
+import '../styles/global.css'; // ESTA LINHA É OBRIGATÓRIA
+---
+<!doctype html>
+<html lang="pt"> <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>JCF Materiais de Construção</title>
+    </head>
+    <body>
+        <Header /> <main>
+            <slot />
+        </main>
+    </body>
+</html>
+
+<style>
+    /* Ajuste para o layout não ficar "preso" em 100% de altura se o conteúdo crescer */
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+</style>
