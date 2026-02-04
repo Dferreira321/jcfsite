@@ -1,69 +1,83 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// 1. Os teus dados (Podes adicionar mais facilmente aqui)
-const catalogos = [
+// Exemplo de dados para as categorias
+const categorias = [
   {
-    titulo: "Catálogo Geral 2024",
-    descricao: "Tudo para a sua obra, desde cimento a ferramentas elétricas.",
-    ficheiro: "/catalogos/catalogo-geral.pdf",
-    tamanho: "12 MB",
-    cor: "border-jcf-orange"
+    titulo: "Eletricidade",
+    imagem: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80",
+    destaques: ["Aparelhagem", "Cabos e Condutores", "Quadros Elétricos"],
+    cor: "border-yellow-500"
   },
   {
-    titulo: "Tintas e Acabamentos",
-    descricao: "Gama completa de tintas interiores, exteriores e vernizes.",
-    ficheiro: "/catalogos/tintas-2024.pdf",
-    tamanho: "5 MB",
-    cor: "border-jcf-red"
+    titulo: "Iluminação LED",
+    imagem: "https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&w=600&q=80",
+    destaques: ["Projetores Exterior", "Painéis LED", "Fitas LED"],
+    cor: "border-blue-400"
   },
   {
-    titulo: "Bricolage e Jardim",
-    descricao: "Ferramentas manuais e soluções para o seu jardim.",
-    ficheiro: "/catalogos/jardim.pdf",
-    tamanho: "8 MB",
-    cor: "border-jcf-yellow"
+    titulo: "Pladur e Divisórias",
+    imagem: "https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=600&q=80",
+    destaques: ["Placas Hidrófugas", "Perfilaria", "Massas de Juntas"],
+    cor: "border-gray-400"
+  },
+  {
+    titulo: "Isolamentos",
+    imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80",
+    destaques: ["Lã de Rocha", "Poliestireno (EPS/XPS)", "Telas Térmicas"],
+    cor: "border-orange-500"
   }
 ];
 ---
 
-<Layout title="Catálogos">
+<Layout title="Produtos | JCF Materiais">
   <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
       
-      <div class="mb-12 border-l-8 border-jcf-orange pl-6">
-        <h1 class="text-4xl font-black text-jcf-black uppercase tracking-tight">
-          Nossos <span class="text-jcf-orange">Catálogos</span>
+      <div class="mb-12">
+        <h1 class="text-4xl font-black text-jcf-black uppercase italic">
+          O Nosso <span class="text-jcf-orange">Catálogo</span>
         </h1>
-        <p class="text-jcf-grey font-medium mt-2">
-          Consulte as nossas tabelas de preços e especificações técnicas.
+        <p class="text-gray-600 max-w-2xl mt-2">
+          Dispomos de mais de 4.000 referências em stock. Explore as nossas principais gamas de produtos para a sua obra.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {catalogos.map((cat) => (
-          <div class={`bg-white p-8 rounded-lg shadow-sm border-t-4 ${cat.cor} hover:shadow-md transition-shadow flex flex-col justify-between`}>
-            <div>
-              <div class="flex justify-between items-start mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-jcf-grey" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                <span class="text-xs font-bold text-gray-400 bg-gray-100 px-2 py-1 rounded tracking-tighter">{cat.tamanho}</span>
-              </div>
-              <h2 class="text-xl font-black text-jcf-black mb-3 uppercase tracking-tight">{cat.titulo}</h2>
-              <p class="text-gray-600 text-sm mb-6 leading-relaxed">
-                {cat.descricao}
-              </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {categorias.map((cat) => (
+          <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border-b-4 {cat.cor} group">
+            <div class="h-48 overflow-hidden">
+              <img src={cat.imagem} alt={cat.titulo} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             
-            <a 
-              href={cat.ficheiro} 
-              target="_blank"
-              class="inline-flex items-center justify-center gap-2 bg-jcf-black text-white font-bold py-3 px-4 rounded hover:bg-jcf-orange transition-colors group"
-            >
-              <span>DESCARREGAR PDF</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 group-hover:translate-y-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            </a>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-jcf-black mb-4">{cat.titulo}</h3>
+              
+              <ul class="mb-6 space-y-2">
+                {cat.destaques.map((item) => (
+                  <li class="text-sm text-gray-500 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-jcf-orange rounded-full"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <button class="w-full py-2 bg-gray-100 text-jcf-black font-bold rounded-lg hover:bg-jcf-black hover:text-white transition-colors">
+                Ver Gama Completa
+              </button>
+            </div>
           </div>
         ))}
+      </div>
+
+      <div class="mt-16 bg-jcf-black rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Não encontra o que procura?</h2>
+          <p class="text-gray-400">Com 4.000 artigos, o que precisa está certamente no nosso armazém.</p>
+        </div>
+        <a href="/contactos" class="px-8 py-4 bg-jcf-orange text-white font-black uppercase rounded-xl hover:scale-105 transition-transform text-center">
+          Consultar Stock Especializado
+        </a>
       </div>
 
     </div>
