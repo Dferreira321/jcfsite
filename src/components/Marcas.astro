@@ -1,0 +1,32 @@
+---
+const marcas = [
+  { nome: "Ferramentas Total", logo: "/marcas/total.png" },
+  { nome: "Pecol", logo: "/marcas/pecol.png" },
+  { nome: "Efapel", logo: "/marcas/efapel.png" },
+  { nome: "Pulmor", logo: "/marcas/pulmor.png" }, 
+    { nome: "PLadur", logo: "/marcas/pladur.png" }, 
+        { nome: "verdasca", logo: "/marcas/verdasca.png" }, 
+
+
+];
+---
+
+<section class="py-12 bg-white border-b border-gray-100">
+  <div class="container mx-auto px-4">
+    <p class="text-center text-gray-400 text-sm font-bold uppercase tracking-widest mb-10">
+      Algumas das marcas presentes no nosso armazém
+    </p>
+    
+    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+      {marcas.map((marca) => (
+        <div class="cursor-pointer hover:scale-105 transition-transform duration-300">
+          <img 
+            src={marca.logo} 
+            alt={`Parceiro ${marca.nome}`} 
+            class="h-8 md:h-12 w-auto object-contain"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

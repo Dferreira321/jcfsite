@@ -2,29 +2,43 @@
 // src/components/Hero.astro
 ---
 
-<section class="relative bg-jcf-black py-20 lg:py-32 overflow-hidden">
-  <div class="absolute right-0 top-0 opacity-10 translate-x-1/4 -translate-y-1/4">
-     <svg width="600" height="400" viewBox="0 0 300 200" fill="none">
-        <path d="M50 150 L100 50 L150 150" stroke="white" stroke-width="20"/>
-        <path d="M120 150 L170 50 L220 150" stroke="#F28E2B" stroke-width="20"/>
+<section class="relative bg-jcf-black py-24 lg:py-40 overflow-hidden border-b-8 border-jcf-orange">
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 translate-x-1/4 pointer-events-none">
+     <svg width="800" height="600" viewBox="0 0 300 200" fill="none" class="blur-[2px]">
+        <path d="M30 170 L100 30 L170 170" stroke="white" stroke-width="12" stroke-linejoin="bevel"/>
+        <path d="M100 170 L170 30 L240 170" stroke="#F28E2B" stroke-width="12" stroke-linejoin="bevel"/>
      </svg>
   </div>
 
   <div class="container mx-auto px-4 relative z-10">
-    <div class="max-w-2xl">
-      <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-6">
-        CONSTRUA COM <span class="text-jcf-orange">CONFIANÇA</span> E QUALIDADE.
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-jcf-orange/10 border border-jcf-orange/30 text-jcf-orange px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-8">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-jcf-orange opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-jcf-orange"></span>
+        </span>
+        Santarém, Portugal
+      </div>
+
+      <h1 class="text-5xl md:text-7xl font-black text-white leading-[0.9] mb-8 uppercase italic italic">
+        Construa com <br/>
+        <span class="text-jcf-orange">Confiança</span> e Qualidade.
       </h1>
-      <p class="text-jcf-grey text-lg md:text-xl mb-10 font-medium">
-        Tudo o que a sua obra precisa, desde o alicerce ao acabamento. Visite os nossos catálogos ou peça já o seu orçamento.
+      
+      <p class="text-gray-400 text-lg md:text-xl mb-12 font-medium max-w-xl border-l-4 border-jcf-orange pl-6">
+        Tudo o que a sua obra precisa, desde o alicerce ao acabamento. <br class="hidden md:block"/>
+        Mais de 4.000 referências em stock imediato.
       </p>
       
-      <div class="flex flex-wrap gap-4">
-        <a href="/catalogos" class="bg-jcf-orange hover:bg-jcf-yellow text-jcf-black px-8 py-4 rounded font-black transition-all flex items-center gap-2">
-          VER CATÁLOGOS
+      <div class="flex flex-wrap gap-5">
+        <a href="/produtos" class="bg-jcf-orange hover:bg-white text-jcf-black px-10 py-5 rounded-lg font-black transition-all flex items-center gap-3 shadow-lg shadow-jcf-orange/20 uppercase tracking-tighter">
+          Ver Produtos
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
         </a>
-        <a href="/contactos" class="border-2 border-white text-white hover:bg-white hover:text-jcf-black px-8 py-4 rounded font-black transition-all">
-          CONTACTAR AGORA
+        <a href="/contactos" class="border-2 border-gray-700 text-white hover:border-white hover:bg-white hover:text-jcf-black px-10 py-5 rounded-lg font-black transition-all uppercase tracking-tighter">
+          Orçamento Grátis
         </a>
       </div>
     </div>
