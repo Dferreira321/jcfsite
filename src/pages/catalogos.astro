@@ -2,6 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 
 // 1. Os teus dados (Podes adicionar mais facilmente aqui)
+
+
+
 const catalogos = [
   {
     titulo: "Catálogo Geral 2024",
@@ -25,6 +28,7 @@ const catalogos = [
     cor: "border-jcf-yellow"
   }
 ];
+
 ---
 
 <Layout title="Catálogos">
@@ -33,12 +37,15 @@ const catalogos = [
       
       <div class="mb-12 border-l-8 border-jcf-orange pl-6">
         <h1 class="text-4xl font-black text-jcf-black uppercase tracking-tight">
-          Nossos <span class="text-jcf-orange">Catálogos</span>
+           <span class="text-jcf-orange">Catálogos</span>
         </h1>
         <p class="text-jcf-grey font-medium mt-2">
-          Consulte as nossas tabelas de preços e especificações técnicas.
         </p>
       </div>
+
+
+      Disponivel Em breve
+<!-- 
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {catalogos.map((cat) => (
@@ -65,7 +72,7 @@ const catalogos = [
           </div>
         ))}
       </div>
-
+    -->
     </div>
   </section>
 </Layout>
