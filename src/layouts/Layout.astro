@@ -1,13 +1,14 @@
 ---
 import Analytics from '@vercel/analytics/astro';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css'; // ESTA LINHA É OBRIGATÓRIA
 ---
 <!doctype html>
 <html lang="pt"> <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.png" />
         <meta name="generator" content={Astro.generator} />
         <title>JCF Materiais de Construção</title>
         <Analytics />
@@ -17,6 +18,9 @@ import '../styles/global.css'; // ESTA LINHA É OBRIGATÓRIA
             <slot />
         </main>
     </body>
+       
+    <Footer></Footer>
+
 </html>
 
 <style>

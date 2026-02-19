@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Lista expandida com todas as categorias solicitadas
+const categorias = [
+  {
+    titulo: "Eletricidade",
+    imagem: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80",
+    destaques: ["Aparelhagem", "Cabos e Condutores", "Quadros Elétricos"],
+    cor: "border-yellow-500"
+  },
+  {
+    titulo: "Canalização",
+    imagem: "/categoria/canalizacao.png",
+    destaques: ["Tubagem Multicamada", "Acessórios de Aperto", "Válvulas"],
+    cor: "border-blue-600"
+  },
+  {
+    titulo: "Saneamento",
+    imagem: "https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&w=600&q=80",
+    destaques: ["Tubos PVC Esgoto", "Caixas de Visita", "Drenagem"],
+    cor: "border-orange-900"
+  },
+  {
+    titulo: "Pladur e Divisórias",
+    imagem: "https://images.unsplash.com/photo-1733431774078-692252a6605e?q=80&w=1470&auto=format&fit=crop",
+    destaques: ["Placas Hidrófugas", "Perfilaria", "Massas de Juntas"],
+    cor: "border-gray-400"
+  },
+  {
+    titulo: "Argamassas",
+    imagem: "/categoria/argamassa.png",
+    destaques: ["Cimento Cola", "Rebocos", "Betumes de Juntas"],
+    cor: "border-stone-500"
+  },
+  {
+    titulo: "Tintas e Consumíveis",
+    imagem: "/categoria/tinta.webp",
+    destaques: ["Tintas de Interior", "Rolos e Trinchas", "Isolantes"],
+    cor: "border-red-600"
+  },
+  {
+    titulo: "Drogaria",
+    imagem: "/categoria/drogaria.png",
+    destaques: ["Silicones", "Diluentes", "Verniz madeira"],
+    cor: "border-green-700"
+  },
+  {
+    titulo: "Mosaicos e Azulejos",
+    imagem: "/categoria/mosaico2.png",
+    destaques: ["Pavimentos", "Revestimentos", "Cerâmicos"],
+    cor: "border-teal-500"
+  },
+  {
+    titulo: "Mobiliário Casa de Banho",
+    imagem: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80",
+    destaques: ["Móveis WC", "Sanitários", "Torneiras"],
+    cor: "border-indigo-400"
+  }
+];
+---
+
+<Layout title="Produtos | JCF Materiais">
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      
+      <div class="mb-12">
+        <h1 class="text-4xl font-black text-jcf-black uppercase italic">
+          O Nosso <span class="text-jcf-orange">Catálogo</span>
+        </h1>
+        <p class="text-gray-600 max-w-2xl mt-2">
+          Dispomos de mais de 4.000 referências em stock. Explore as nossas principais gamas de produtos para a sua obra.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {categorias.map((cat) => (
+          <div class={`bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border-b-4 ${cat.cor} group flex flex-col`}>
+            <div class="h-48 overflow-hidden">
+              <img src={cat.imagem} alt={cat.titulo} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+            </div>
+            
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-xl font-bold text-jcf-black mb-4">{cat.titulo}</h3>
+              
+              <ul class="mb-6 space-y-2 flex-grow">
+                {cat.destaques.map((item) => (
+                  <li class="text-sm text-gray-500 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 bg-jcf-orange rounded-full"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <a href="/contactos" class="w-full py-2 bg-gray-100 text-jcf-black font-bold rounded-lg hover:bg-jcf-black hover:text-white transition-colors text-center text-sm">
+                Pedir Orçamento
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-16 bg-jcf-black rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Não encontra o que procura?</h2>
+          <p class="text-gray-400">Com 4.000 artigos, o que precisa está certamente no nosso armazém.</p>
+        </div>
+        <a href="/contactos" class="px-8 py-4 bg-jcf-orange text-white font-black uppercase rounded-xl hover:scale-105 transition-transform text-center">
+          Consultar Stock Especializado
+        </a>
+      </div>
+
+    </div>
+  </section>
+</Layout>
