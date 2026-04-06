@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 1. Lista de Marcas
+const marcasRaw = [
+  {
+    nome: "Preceram",
+    logo: "/marcas/preceram.png",
+    descricao: "Tijolos cerâmicos e soluções de isolamento."
+  },
+  {
+    nome: "Verdasca",
+    logo: "/marcas/verdasca.png",
+    descricao: "Pré-fabricados de betão e pavimentos."
+  },
+  {
+    nome: "Pecol",
+    logo: "/marcas/pecol.png",
+    descricao: "Sistemas de fixação, ferramentas e químicos."
+  },
+  {
+    nome: "Efapel",
+    logo: "/marcas/efapel.png",
+    descricao: "Material elétrico e aparelhagem de qualidade."
+  },
+  {
+    nome: "Profitinta",
+    logo: "/marcas/protitinta.png",
+    descricao: "Tintas e revestimentos ecológicos."
+  },
+  {
+    nome: "Total Tools",
+    logo: "/marcas/total.png",
+    descricao: "Gama completa de ferramentas profissionais."
+  },
+  {
+    nome: "Quitérios",
+    logo: "/marcas/quiterios.svg",
+    descricao: "Soluções para instalações elétricas e telecomunicações."
+  },
+  {
+    nome: "Tev",
+    logo: "/marcas/tev.png",
+    descricao: "Quadros elétricos e aparelhagem de proteção."
+  }
+];
+
+// 2. Ordenação Automática de A a Z
+const marcas = marcasRaw.sort((a, b) => a.nome.localeCompare(b.nome));
+---
+
+<Layout title="Nossas Marcas | JCF Materiais" description="Conheça as marcas que representamos em Santarém. Materiais de qualidade para a sua obra.">
+  <section class="py-16 bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-black text-jcf-black mb-3 uppercase italic">
+            Nossas <span class="text-jcf-orange">Marcas</span>
+          </h1>
+          <p class="text-gray-600 max-w-xl text-base">
+            Trabalhamos com os melhores fabricantes do mercado para garantir a qualidade da sua obra.
+          </p>
+        </div>
+
+        <div class="relative w-full md:w-80">
+          <input 
+            type="text" 
+            id="searchBox" 
+            placeholder="Procurar marca..." 
+            class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:border-jcf-orange focus:ring-2 focus:ring-jcf-orange/20 outline-none transition-all shadow-sm"
+          />
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+      </div>
+
+      <div id="brandsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {marcas.map((marca) => (
+          <div class="brand-card bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex flex-col items-center text-center transition-all" data-name={marca.nome.toLowerCase()}>
+            <div class="h-24 flex items-center justify-center mb-4">
+              <img src={marca.logo} alt={`Logo ${marca.nome}`} class="max-h-full w-auto" />
+            </div>
+            <h2 class="text-lg font-bold mb-2 text-jcf-black">{marca.nome}</h2>
+            <p class="text-gray-500 text-xs leading-relaxed">{marca.descricao}</p>
+          </div>
+        ))}
+      </div>
+
+      <div id="noResults" class="hidden text-center py-20">
+        <p class="text-gray-500 text-lg italic">Não encontramos nenhuma marca com esse nome.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-jcf-black py-12 text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-white text-2xl font-bold mb-4 italic uppercase">Precisa de algum material destas marcas?</h2>
+      <p class="text-gray-400 mb-8 text-sm uppercase tracking-widest">Peça-nos um orçamento sem compromisso</p>
+      <a href="/contactos" class="inline-block bg-jcf-orange text-white px-8 py-3 rounded-md font-bold hover:bg-white hover:text-jcf-orange transition-all uppercase text-sm">
+        Contactar agora
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const searchBox = document.getElementById('searchBox') as HTMLInputElement;
+  const brandCards = document.querySelectorAll('.brand-card');
+  const noResults = document.getElementById('noResults');
+
+  searchBox?.addEventListener('input', (e) => {
+    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+    let hasResults = false;
+
+    brandCards.forEach((card) => {
+      const brandName = (card as HTMLElement).dataset.name || "";
+      if (brandName.includes(searchTerm)) {
+        (card as HTMLElement).style.display = 'flex';
+        hasResults = true;
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+
+    if (noResults) {
+      noResults.style.display = hasResults ? 'none' : 'block';
+    }
+  });
+</script>
